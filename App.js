@@ -1,21 +1,42 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import UserSignUpScreen from './src/screens/user-signup-screen';
+import UserSignInScreen from './src/screens/user-signin-screen';
+import CourseScreen from './src/screens/course-screen';
+import AdminPanelScreen from'./src/screens/admin/admin-panel-screen';
+import CreateCourseScreen from './src/screens/admin/create-course-panel';
 
-export default function App() {
+import {createSwitchNavigator, createAppContainer,createB} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation-stack';
+import {Provider as AuthProvider} from './src/context/auth-context';
+import {setNavigator} from './src/navigation-ref';
+import CourseContentScreen from './src/screens/course-content-screen';
+import UserEditPanelScreen from './src/screens/admin/user-edit-panel-screen';
+import AllCoursesScreen from './src/screens/admin/all-courses-screen';
+
+const switchNavigator = createSwitchNavigator({
+  loginFlow: createStackNavigator({
+    Signin: UserSignInScreen,
+    Signup: UserSignUpScreen,
+  }),
+  mainFlow: createStackNavigator({
+    Course: CourseScreen,
+    CourseContent: CourseContentScreen,
+  }),
+  adminFlow: createStackNavigator({
+    AdminPanel:AdminPanelScreen,
+    CreateCourse: CreateCourseScreen,
+    UserEdit:UserEditPanelScreen,
+    AllCourses:AllCoursesScreen
+  }),
+  
+})
+
+const App = createAppContainer(switchNavigator);
+
+export default () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <AuthProvider>
+      <App ref={(navigator) => {setNavigator(navigator)}}></App>
+    </AuthProvider>
   );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+};
