@@ -16,10 +16,10 @@ export const UserEditPanelScreen = (props) => {
     }
     return (
         <View style={{marginHorizontal:20}}>
-            <TextInput mode="outlined" value={user.username} onChangeText={(text) => {
+            <TextInput autoCapitalize="none" mode="outlined" value={user.username} onChangeText={(text) => {
                 setUser({...user,username:text});
             }}></TextInput>
-            <TextInput mode="outlined" value={user.email} onChangeText={(text) => setUser({...user,email:text})}></TextInput>
+            <TextInput autoCapitalize="none" mode="outlined" value={user.email} onChangeText={(text) => setUser({...user,email:text})}></TextInput>
             <View style={styles.buttonBar}>
             <TouchableOpacity style={user.role === "I" ? styles.activeTypeButton : styles.deactiveTypeButton} onPress={() => roleSelection("I")}>
                         <Text style={styles.typeButtonText}>Invidually</Text>

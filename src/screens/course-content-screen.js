@@ -170,7 +170,7 @@ const CourseContentScreen = (props) => {
         for (const i in content) {
             const data = content[i];
             if (data.type === 'input') {
-                components.push(<TextInput key={content[i].key} style={{ width: 80,height:40, fontSize:18,borderBottomWidth:1,marginHorizontal:10, borderColor:'blue'}} onChangeText={(text) => {
+                components.push(<TextInput autoCapitalize="none" key={content[i].key} style={{ width: 80,height:40, fontSize:18,borderBottomWidth:1,marginHorizontal:10, borderColor:'blue'}} onChangeText={(text) => {
                     let foundAnswer = findKeyInAnswers(data.key);
 
                     if (foundAnswer == null) {

@@ -15,13 +15,12 @@ const CourseScreen = () => {
     )
     const renderCourses = ({item}) => {
         return (
-            <View>
+            <View style={{backgroundColor:'white',borderBottomWidth:1}}>
                 <TouchableWithoutFeedback  onPress={() => {navigate('CourseContent',item.contents)}}>
                     <View style={{
-                    borderRadius:1, padding:10, height:50
-                }}>
-                       <Text>{item.name}</Text>
-                       <Text>Start</Text>
+                     borderRadius:1, height:60,paddingLeft:20, flexDirection:'row',justifyContent:'space-between',alignItems:'center'
+                 }}>
+                       <Text style={{fontSize:18}}>{item.name}</Text>
                 </View>
                  
                 </TouchableWithoutFeedback>

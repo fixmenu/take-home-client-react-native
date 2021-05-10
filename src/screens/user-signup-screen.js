@@ -93,10 +93,10 @@ const UserSignUpScreen = () => {
                 </View>
             </View>
             <View style={{paddingTop: 30, paddingLeft: 30}}>
-                <TextInput style={styles.input} placeholder="Username" onChangeText={(username) => setUsername(username)}></TextInput>
-                <TextInput style={styles.input} placeholder="E-mail" onChangeText={(email) => setEmail(email)}></TextInput>
-                <TextInput style={styles.input} placeholder="Password" onChangeText={(password) => setPassword(password)}></TextInput>
-                <TextInput style={styles.input} placeholder="Confirm Password" onChangeText={(confirmPassword) => setConfirmPassword(confirmPassword)}></TextInput>
+                <TextInput autoCapitalize="none" style={styles.input} placeholder="Username" onChangeText={(username) => setUsername(username)}></TextInput>
+                <TextInput autoCapitalize="none" style={styles.input} placeholder="E-mail" onChangeText={(email) => setEmail(email)}></TextInput>
+                <TextInput autoCapitalize="none" style={styles.input} placeholder="Password" onChangeText={(password) => setPassword(password)}></TextInput>
+                <TextInput autoCapitalize="none" style={styles.input} placeholder="Confirm Password" onChangeText={(confirmPassword) => setConfirmPassword(confirmPassword)}></TextInput>
         
             </View>
             <View style={{alignItems:'center'}}>
